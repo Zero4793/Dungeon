@@ -1,5 +1,5 @@
 {
-  "type": "zero:dungeon",
+  "type": "dungeon:dungeon",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
