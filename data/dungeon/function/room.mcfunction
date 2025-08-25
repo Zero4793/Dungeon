@@ -8,7 +8,7 @@ execute if entity @s[tag=!made] run return run function dungeon:generate_room
 
 # clean up
 execute as @e[type=armor_stand,dx=46,dy=46,dz=46] at @s if block ~ ~ ~ redstone_block run function dungeon:cmd_clear
-kill @e[type=armor_stand,dx=46,dy=46,dz=46]
+kill @e[type=armor_stand,tag=cmd,dx=46,dy=46,dz=46]
 execute as @e[dx=46,dy=46,dz=46] run data merge entity @s {PersistenceRequired:1b}
 
 # age++
