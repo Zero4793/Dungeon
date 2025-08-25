@@ -59,14 +59,5 @@ execute if data entity @s {data:{E:1,S:1,W:1,N:1}} if score @s rng matches 3 run
 # pick room from <theme>/<type>
 function dungeon:spawn_room with entity @s data
 
-# inside spawn_room?
-# map = <theme>/<type>
-# <turn> & load <room>
-# <turn> & load <map>
-
-# trigger & kill; command & chest stands
-# merge entities {PersistenceRequired:1b}
-# move to spawn_room? also move entry marker there too?
-
 # done
 tag @s add made

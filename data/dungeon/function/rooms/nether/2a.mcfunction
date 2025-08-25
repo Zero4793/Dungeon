@@ -3,5 +3,5 @@
 # pick room
 execute store result score @s rng run random value 1..2
 execute if score @s rng matches 1 run data merge block ~ ~ ~ {name:"dungeon:nether/2a-tunnel"}
-execute if score @s rng matches 1 run data merge block ~ ~ ~ {name:"dungeon:nether/2a-trial-by-fire"}
+execute if score @s rng matches 2 run data merge block ~ ~ ~ {name:"dungeon:nether/2a-trial-by-fire"}
 

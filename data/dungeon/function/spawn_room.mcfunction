@@ -3,7 +3,7 @@
 # set map
 $setblock ~ ~48 ~ structure_block{mode:"LOAD",posY:0,name:"dungeon:$(theme)/$(type)"}
 # set room
-setblock ~ ~ ~ structure_block{mode:"LOAD",posY:0,name:"dungeon:4"}
+setblock ~ ~ ~ structure_block{mode:"LOAD",posY:0,name:"dungeon:4",ignoreEntities:false}
 $function dungeon:rooms/$(theme)/$(type)
 
 # rotate pieces
@@ -12,6 +12,13 @@ function dungeon:rotate
 # load room & map
 setblock ~ ~1 ~ air
 fill ~ ~1 ~ ~ ~49 ~ redstone_block replace air
-
-# done
 setblock ~ ~-1 ~ reinforced_deepslate
+
+# trigger command stands
+execute as @e[type=armor_stand,dx=46,dy=46,dz=46] at @s if block ~ ~-1 ~ command_block run setblock ~ ~ ~ redstone_block
+
+# set entry point
+execute unless entity @s[tag=spawn] run return fail
+execute at @n[type=armor_stand,name=spawn,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,entry]}
+execute as @n[type=armor_stand,name=spawn,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=entry] ~ ~ ~ ~ ~
+kill @n[type=armor_stand,name=spawn,distance=..48]

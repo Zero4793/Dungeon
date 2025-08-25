@@ -20,11 +20,6 @@ function dungeon:spawn_room with entity @s data
 setblock ~ ~51 ~ structure_block{mode:"LOAD",posY:0,name:"dungeon:spawn"}
 setblock ~ ~51 ~1 redstone_block
 
-# set entry
-execute at @n[type=armor_stand,name=spawn,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,entry]}
-execute as @n[type=armor_stand,name=spawn,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=entry] ~ ~ ~ ~ ~
-kill @n[type=armor_stand,name=spawn,distance=..48]
-
 # live longer than other rooms
 scoreboard players set @s age -100
 
