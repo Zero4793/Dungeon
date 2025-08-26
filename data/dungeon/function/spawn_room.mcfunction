@@ -25,3 +25,7 @@ kill @n[type=armor_stand,name=spawn,distance=..48]
 execute at @n[type=armor_stand,name=exit,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,exit]}
 execute as @n[type=armor_stand,name=exit,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=exit] ~ ~ ~ ~ ~
 kill @n[type=armor_stand,name=exit,distance=..48]
+
+# time limit
+# 10 mins. later make setable
+scoreboard players set @s time 12000

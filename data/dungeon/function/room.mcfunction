@@ -11,9 +11,9 @@ execute as @e[type=armor_stand,dx=46,dy=46,dz=46] at @s if block ~ ~ ~ redstone_
 kill @e[type=armor_stand,tag=cmd,dx=46,dy=46,dz=46]
 execute as @e[dx=46,dy=46,dz=46] run data merge entity @s {PersistenceRequired:1b}
 
+# time--
+execute if score @s time matches 0 run function dungeon:room_death
+scoreboard players remove @s time 1
+
 # age++
 scoreboard players add @s age 1
-# if age=old:
-# 	kill room
-# 	kill @s
-

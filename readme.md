@@ -36,10 +36,9 @@ entrance-1_3
 dungeon-run-1_2a
 dungeon-cave-1_2b
 # Plan
-performance like clock checks can come later, for now just get working
-custom loot tables, and loot stand spawning
 add time/stage based generation; start with larger door counts, then decrease. expand than wrap up
 make dimension scaling a multiple of 48. dungeons could then join up
+fix entry and exit spawns
 
 /trigger settings
 /trigger credit
@@ -48,3 +47,4 @@ make dimension scaling a multiple of 48. dungeons could then join up
 /trigger credits
 	list all rooms and creators
 # Ideas
+custom loot tables
