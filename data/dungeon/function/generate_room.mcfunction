@@ -14,18 +14,18 @@ execute if data entity @s {data:{W:-1}} if block ~-46 ~49 ~1 bedrock run data me
 execute if data entity @s {data:{N:-1}} if block ~1 ~49 ~-46 bedrock run data merge entity @s {data:{N:0}}
 
 # rand optional
-execute if data entity @s {data:{E:-1}} store result score @s rng run random value 1..2
-execute if data entity @s {data:{E:-1}} if score @s rng matches 1 run data merge entity @s {data:{E:1}}
-execute if data entity @s {data:{E:-1}} if score @s rng matches 2 run data merge entity @s {data:{E:0}}
-execute if data entity @s {data:{S:-1}} store result score @s rng run random value 1..2
-execute if data entity @s {data:{S:-1}} if score @s rng matches 1 run data merge entity @s {data:{S:1}}
-execute if data entity @s {data:{S:-1}} if score @s rng matches 2 run data merge entity @s {data:{S:0}}
-execute if data entity @s {data:{W:-1}} store result score @s rng run random value 1..2
-execute if data entity @s {data:{W:-1}} if score @s rng matches 1 run data merge entity @s {data:{W:1}}
-execute if data entity @s {data:{W:-1}} if score @s rng matches 2 run data merge entity @s {data:{W:0}}
-execute if data entity @s {data:{N:-1}} store result score @s rng run random value 1..2
-execute if data entity @s {data:{N:-1}} if score @s rng matches 1 run data merge entity @s {data:{N:1}}
-execute if data entity @s {data:{N:-1}} if score @s rng matches 2 run data merge entity @s {data:{N:0}}
+execute if data entity @s {data:{E:-1}} store result score @s rng run random value 0..2
+execute if data entity @s {data:{E:-1}} if score @s rng matches 0 run data merge entity @s {data:{E:0}}
+execute if data entity @s {data:{E:-1}} if score @s rng matches 1..2 run data merge entity @s {data:{E:1}}
+execute if data entity @s {data:{S:-1}} store result score @s rng run random value 0..2
+execute if data entity @s {data:{S:-1}} if score @s rng matches 0 run data merge entity @s {data:{S:0}}
+execute if data entity @s {data:{S:-1}} if score @s rng matches 1..2 run data merge entity @s {data:{S:1}}
+execute if data entity @s {data:{W:-1}} store result score @s rng run random value 0..2
+execute if data entity @s {data:{W:-1}} if score @s rng matches 0 run data merge entity @s {data:{W:0}}
+execute if data entity @s {data:{W:-1}} if score @s rng matches 1..2 run data merge entity @s {data:{W:1}}
+execute if data entity @s {data:{N:-1}} store result score @s rng run random value 0..2
+execute if data entity @s {data:{N:-1}} if score @s rng matches 0 run data merge entity @s {data:{N:0}}
+execute if data entity @s {data:{N:-1}} if score @s rng matches 1..2 run data merge entity @s {data:{N:1}}
 
 # assign type & turn based on door flags
 #1
@@ -55,6 +55,10 @@ execute if data entity @s {data:{E:1,S:1,W:1,N:1}} if score @s rng matches 0 run
 execute if data entity @s {data:{E:1,S:1,W:1,N:1}} if score @s rng matches 1 run data merge entity @s {data:{turn:1}}
 execute if data entity @s {data:{E:1,S:1,W:1,N:1}} if score @s rng matches 2 run data merge entity @s {data:{turn:2}}
 execute if data entity @s {data:{E:1,S:1,W:1,N:1}} if score @s rng matches 3 run data merge entity @s {data:{turn:3}}
+
+# maybe change theme
+execute store result score @s rng run random value 0..8
+execute if score @s rng matches 0 run function dungeon:pick_theme
 
 # pick room from <theme>/<type>
 function dungeon:spawn_room with entity @s data

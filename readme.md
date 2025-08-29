@@ -39,6 +39,7 @@ dungeon-cave-1_2b
 add time/stage based generation; start with larger door counts, then decrease. expand than wrap up
 make dimension scaling a multiple of 48. dungeons could then join up
 fix entry and exit spawns
+only enter if time above some min. to avoid sending players to certain death
 
 /trigger settings
 /trigger credit

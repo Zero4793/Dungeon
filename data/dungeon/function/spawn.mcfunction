@@ -1,9 +1,7 @@
 # in dungeon as @e[type=marker,tag=dungeon,tag=spawn,tag=!room] at @s
 
 # pick theme
-execute store result score @s rng run random value 1..2
-execute if score @s rng matches 1 run data merge entity @s {data:{theme:stone}}
-execute if score @s rng matches 2 run data merge entity @s {data:{theme:nether}}
+function dungeon:pick_theme
 
 # pick type
 data merge entity @s {data:{turn:0}}
