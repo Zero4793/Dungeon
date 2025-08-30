@@ -7,8 +7,9 @@ execute if score @s rng matches 1..2 run data merge block ~ ~ ~ {name:"dungeon:s
 execute if entity @s[tag=spawn] run return fail
 
 # pick room
-execute store result score @s rng run random value 1..4
+execute store result score @s rng run random value 1..5
 execute if score @s rng matches 1 run data merge block ~ ~ ~ {name:"dungeon:stone/4-tunnel"}
 execute if score @s rng matches 2 run data merge block ~ ~ ~ {name:"dungeon:stone/4-trap1"}
 execute if score @s rng matches 3 run data merge block ~ ~ ~ {name:"dungeon:stone/4-caves"}
 execute if score @s rng matches 4 run data merge block ~ ~ ~ {name:"dungeon:stone/4-cave-cross"}
+execute if score @s rng matches 5 run data merge block ~ ~ ~ {name:"dungeon:stone/4-cave-pass"}
