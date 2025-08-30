@@ -1,13 +1,12 @@
 # in dungeon as @e[type=marker,tag=dungeon,tag=room,tag=!made] at @s
-scoreboard players set @s rng 0
 
-# spawn
-execute if entity @s[tag=spawn] store result score @s rng run random value 1..2
-execute if score @s rng matches 1..2 run data merge block ~ ~ ~ {name:"dungeon:stone/s1-basic"}
-execute if entity @s[tag=spawn] run return fail
+execute store result score @s rng run random value 1..2
+execute unless entity @s[tag=spawn] store result score @s rng run random value 2..4
 
-# pick room
-execute store result score @s rng run random value 1..3
-execute if score @s rng matches 1 run data merge block ~ ~ ~ {name:"dungeon:nether/2b-tunnel"}
-execute if score @s rng matches 2 run data merge block ~ ~ ~ {name:"dungeon:nether/2b-ribcage"}
-execute if score @s rng matches 3 run data merge block ~ ~ ~ {name:"dungeon:nether/2b-lava-bridge"}
+# spawn only
+execute if score @s rng matches 1 run data merge entity @s {data:{name:"basic",credit:"Zero"}}
+# either
+execute if score @s rng matches 2 run data merge entity @s {data:{name:"tunnel",credit:"Zero"}}
+# normal
+execute if score @s rng matches 3 run data merge entity @s {data:{name:"ribcage",credit:"Bazza"}}
+execute if score @s rng matches 4 run data merge entity @s {data:{name:"lava-bridge",credit:"Zero"}}
