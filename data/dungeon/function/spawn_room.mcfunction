@@ -26,6 +26,7 @@ execute at @n[type=armor_stand,name=exit,distance=..48] run summon marker ~ ~ ~ 
 execute as @n[type=armor_stand,name=exit,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=exit] ~ ~ ~ ~ ~
 kill @n[type=armor_stand,name=exit,distance=..48]
 
-# time limit
-# 10 mins. later make setable
-scoreboard players set @s time 12000
+# time limit; rand+prev
+execute if entity @s[tag=spawn] run return fail
+execute store result score @s time run random value 120..1200
+scoreboard players operation @s time += @n[type=marker,tag=dungeon,tag=room,distance=1..48] time

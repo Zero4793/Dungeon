@@ -20,6 +20,9 @@ setblock ~ ~51 ~1 redstone_block
 
 # live longer than other rooms
 scoreboard players set @s age -100
+# time limit
+# 10 mins. later make setable
+scoreboard players set @s time 12000
 
 # done
 tag @s add room
