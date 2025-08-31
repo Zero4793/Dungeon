@@ -17,3 +17,12 @@ scoreboard players remove @s time 1
 
 # age++
 scoreboard players add @s age 1
+
+# set entry point
+execute at @n[type=armor_stand,name=spawn,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,entry]}
+execute as @n[type=armor_stand,name=spawn,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=entry] ~ ~ ~ ~ ~
+kill @n[type=armor_stand,name=spawn,distance=..48]
+# set exit point
+execute at @n[type=armor_stand,name=exit,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,exit]}
+execute as @n[type=armor_stand,name=exit,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=exit] ~ ~ ~ ~ ~
+kill @n[type=armor_stand,name=exit,distance=..48]

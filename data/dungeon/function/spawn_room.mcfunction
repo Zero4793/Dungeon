@@ -17,16 +17,7 @@ setblock ~ ~-1 ~ reinforced_deepslate
 # trigger command stands
 execute as @e[type=armor_stand,dx=46,dy=46,dz=46] at @s if block ~ ~-1 ~ command_block run setblock ~ ~ ~ redstone_block
 
-# set entry point
-execute at @n[type=armor_stand,name=spawn,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,entry]}
-execute as @n[type=armor_stand,name=spawn,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=entry] ~ ~ ~ ~ ~
-kill @n[type=armor_stand,name=spawn,distance=..48]
-# set exit point
-execute at @n[type=armor_stand,name=exit,distance=..48] run summon marker ~ ~ ~ {Tags:[dungeon,exit]}
-execute as @n[type=armor_stand,name=exit,distance=..48] at @s rotated as @s run tp @n[tag=dungeon,tag=exit] ~ ~ ~ ~ ~
-kill @n[type=armor_stand,name=exit,distance=..48]
-
 # time limit; rand+prev
 execute if entity @s[tag=spawn] run return fail
-execute store result score @s time run random value 120..240
+execute store result score @s time run random value 1000..1200
 scoreboard players operation @s time += @n[type=marker,tag=dungeon,tag=room,distance=1..48] time
